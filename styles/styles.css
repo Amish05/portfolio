@@ -308,17 +308,17 @@ section {
   transition: all 0.4s ease-in-out;
   width: 60%;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .html {
+.about-stats .progress-bars .progress-bar .progress-con .progress .flutter {
   width: 90%;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .css {
-  width: 80%;
+.about-stats .progress-bars .progress-bar .progress-con .progress .python {
+  width: 60%;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .js {
-  width: 80%;
+.about-stats .progress-bars .progress-bar .progress-con .progress .cpp {
+  width: 65%;
 }
-.about-stats .progress-bars .progress-bar .progress-con .progress .react {
-  width: 50%;
+.about-stats .progress-bars .progress-bar .progress-con .progress .webdev {
+  width: 70%;
 }
 .about-stats .progress-bars .progress-bar .progress-con .progress .node {
   width: 60%;

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>How to Train Your First Deep Learning Model</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1520;
+      --panel: rgba(255,255,255,0.12);
+      --panel-border: rgba(255,255,255,0.18);
+      --accent: #27AE60;
+      --muted: rgba(255,255,255,0.75);
+      --glass-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --max-width: 980px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #0b0f14 0%, #191d2b 100%);
+      color: #eaf0f6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:24px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header.hero{
+      width:100%;
+      background:var(--accent);
+      color:#fff;
+      padding:28px 32px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow: 0 8px 30px rgba(39,174,96,0.12);
+      margin-bottom:20px;
+    }
+    header.hero h1{
+      font-size:28px;
+      line-height:1.05;
+      margin-bottom:6px;
+      font-weight:700;
+    }
+    header.hero p{
+      color: rgba(255,255,255,0.95);
+      font-weight:500;
+      opacity:0.95;
+      margin-top:6px;
+      font-size:14px;
+    }
+
+    main.card{
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
+      padding:32px;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--muted);
+      line-height:1.75;
+    }
+
+    main.card h2{
+      color: #fff;
+      font-size:22px;
+      margin-bottom:12px;
+      letter-spacing: -0.2px;
+    }
+
+    main.card h3{
+      color: #fff;
+      margin-top:20px;
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    main.card p{
+      margin-bottom:14px;
+      font-size:15px;
+      color: rgba(234,240,246,0.9);
+    }
+
+    main.card ul{
+      margin-left:18px;
+      margin-bottom:14px;
+    }
+    main.card li{
+      margin-bottom:8px;
+      color: rgba(234,240,246,0.9);
+    }
+
+    .back-btn{
+      display:inline-block;
+      margin-top:18px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.12);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      transition: all .18s ease;
+    }
+    .back-btn:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.35) }
+
+    footer.site-footer{
+      margin-top:26px;
+      padding:18px 22px;
+      background: linear-gradient(90deg, rgba(39,174,96,0.95), rgba(22,138,71,0.95));
+      border-radius:12px;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .socials{display:flex;gap:18px;align-items:center}
+    .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;text-decoration:none}
+    .socials svg{display:block;opacity:0.98}
+
+    .contact-email{
+      color:#fff;
+      font-size:14px;
+      text-decoration:none;
+      background:rgba(255,255,255,0.06);
+      padding:8px 12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width:720px){
+      body{padding:18px}
+      header.hero h1{font-size:22px}
+      main.card{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="hero" role="banner">
+      <h1>How to Train Your First Deep Learning Model</h1>
+      <p>A beginner-friendly guide to building and running your first neural network.</p>
+    </header>
+
+    <main class="card" role="main">
+      <h2>Introduction</h2>
+      <p>Deep learning is the backbone of modern AI applications, powering image recognition, speech processing, and more. Training your first deep learning model might seem intimidating, but by breaking it into clear steps, even beginners can get started confidently.</p>
+
+      <h3>1. Understand the Basics</h3>
+      <p>Start with understanding neural networks: layers, neurons, activation functions, and loss functions. Familiarity with Python and basic linear algebra will make the learning curve smoother.</p>
+
+      <h3>2. Choose a Framework</h3>
+      <ul>
+        <li><strong>TensorFlow:</strong> Popular, beginner-friendly, and well-documented.</li>
+        <li><strong>PyTorch:</strong> Flexible and widely used in research and industry.</li>
+        <li><strong>Keras:</strong> High-level API for rapid prototyping.</li>
+      </ul>
+
+      <h3>3. Pick a Dataset</h3>
+      <p>For your first model, use a small, clean dataset like <strong>MNIST</strong> (handwritten digits) or <strong>CIFAR-10</strong> (images). Public datasets are available in frameworks’ datasets modules or platforms like Kaggle.</p>
+
+      <h3>4. Preprocess Your Data</h3>
+      <p>Normalize features, resize images if needed, and split into training and testing sets. Clean data ensures faster learning and better results.</p>
+
+      <h3>5. Build Your Model</h3>
+      <p>Create a simple model architecture with a few layers. For example, a fully connected neural network or a small convolutional neural network (CNN) for images.</p>
+
+      <h3>6. Compile the Model</h3>
+      <p>Specify the optimizer, loss function, and evaluation metrics. Example: <em>optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy']</em>.</p>
+
+      <h3>7. Train the Model</h3>
+      <p>Use the <strong>fit()</strong> method to train the model on your training data. Monitor performance on a validation set to prevent overfitting.</p>
+
+      <h3>8. Evaluate & Test</h3>
+      <p>Check the model's accuracy and test it on unseen data. Analyze mistakes to understand limitations and improve future models.</p>
+
+      <h3>9. Experiment & Iterate</h3>
+      <p>Try different architectures, activation functions, learning rates, or optimizers. Deep learning is iterative — each experiment teaches you something new.</p>
+
+      <h3>10. Deploy & Apply</h3>
+      <p>Once trained, integrate your model into apps or scripts. Even simple Python apps can make predictions, opening doors for real-world AI projects.</p>
+
+      <a class="back-btn" href="index.html" aria-label="Back to portfolio">← Back to Portfolio</a>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="font-weight:700">Amish Ali — App & Web Developer</div>
+        <div style="font-size:13px;opacity:0.95">Turning ideas into beautiful, usable interfaces</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:18px;">
+        <div class="socials" aria-hidden="false">
+          <a href="https://www.linkedin.com/in/amish-ali/" target="_blank" title="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.026-3.059-1.865-3.059-1.867 0-2.155 1.459-2.155 2.963v5.7h-3v-11h2.881v1.507h.041c.401-.761 1.379-1.563 2.837-1.563 3.034 0 3.595 2.014 3.595 4.637v6.419z"/></svg>
+          </a>
+
+          <a href="https://github.com/Amish05" target="_blank" title="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 .5c-6.63 0-12 5.37-12 12 0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.73.083-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.932 0-1.31.468-2.382 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.044.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.235 1.912 1.235 3.222 0 4.61-2.804 5.628-5.475 5.922.43.372.823 1.102.823 2.222 0 1.606-.014 2.896-.014 3.286 0 .322.216.697.825.578 4.765-1.59 8.2-6.085 8.2-11.383 0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+        <a class="contact-email" href="mailto:amish5151@gmail.com">amish5151@gmail.com</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
